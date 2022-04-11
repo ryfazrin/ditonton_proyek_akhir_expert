@@ -7,14 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
-class WatchlistMoviesPage extends StatefulWidget {
-  static const ROUTE_NAME = '/watchlist-movie';
+class WatchlistPage extends StatefulWidget {
+  const WatchlistPage({Key? key}) : super(key: key);
 
   @override
-  _WatchlistMoviesPageState createState() => _WatchlistMoviesPageState();
+  _WatchlistPageState createState() => _WatchlistPageState();
 }
 
-class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
+class _WatchlistPageState extends State<WatchlistPage>
     with RouteAware, TickerProviderStateMixin {
   late TabController _tabController;
   @override
@@ -34,6 +34,7 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
     routeObserver.subscribe(this, ModalRoute.of(context)!);
   }
 
+  @override
   void didPopNext() {
     Future.microtask(() =>
         Provider.of<MovieWatchlistBloc>(context, listen: false)
@@ -74,22 +75,6 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
                         itemCount: state.result.length,
                       ),
                     ),
-                    // const Padding(
-                    //   padding: EdgeInsets.all(16.0),
-                    //   child: Text(
-                    //     'Tv Series',
-                    //     style: TextStyle(fontSize: 16),
-                    //   ),
-                    // ),
-                    // Expanded(
-                    //   child: ListView.builder(
-                    //     itemBuilder: (context, index) {
-                    //       final tv = data.watchlistTv[index];
-                    //       return TvCard(tv);
-                    //     },
-                    //     itemCount: data.watchlistTv.length,
-                    //   ),
-                    // ),
                   ],
                 );
               } else if (state is MovieWatchlistError) {
