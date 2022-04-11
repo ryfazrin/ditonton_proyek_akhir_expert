@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/search_bloc.dart';
 
 class TvSearchPage extends StatelessWidget {
-  static const ROUTE_NAME = '/search-tv';
+  const TvSearchPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

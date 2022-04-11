@@ -9,19 +9,16 @@ import 'package:core/presentation/pages/popular_tv_page.dart';
 import 'package:core/presentation/pages/top_rated_tv_page.dart';
 import 'package:core/presentation/pages/tv_detail_page.dart';
 import 'package:search/presentation/pages/tv_search_page.dart';
-import 'package:core/presentation/pages/watchlist_movies_page.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-
+import 'package:core/utils/routes.dart';
 import 'home_movie_page.dart';
 import 'on_the_air_page.dart';
 
 class TvPage extends StatefulWidget {
-  static const ROUTE_NAME = '/tv';
-
   const TvPage({Key? key}) : super(key: key);
 
   @override
@@ -58,27 +55,26 @@ class _TvPageState extends State<TvPage> {
               leading: const Icon(Icons.movie),
               title: const Text('Movies'),
               onTap: () {
-                Navigator.pushReplacementNamed(
-                    context, HomeMoviePage.ROUTE_NAME);
+                Navigator.pushReplacementNamed(context, HOME_ROUTE);
               },
             ),
             ListTile(
               leading: const Icon(Icons.tv),
               title: const Text('Tv'),
               onTap: () {
-                Navigator.pushReplacementNamed(context, TvPage.ROUTE_NAME);
+                Navigator.pushReplacementNamed(context, TV_PAGE_ROUTE);
               },
             ),
             ListTile(
               leading: const Icon(Icons.save_alt),
               title: const Text('Watchlist'),
               onTap: () {
-                Navigator.pushNamed(context, WatchlistMoviesPage.ROUTE_NAME);
+                Navigator.pushNamed(context, WATCHLIST_ROUTE);
               },
             ),
             ListTile(
               onTap: () {
-                Navigator.pushNamed(context, AboutPage.ROUTE_NAME);
+                Navigator.pushNamed(context, ABOUT_ROUTE);
               },
               leading: const Icon(Icons.info_outline),
               title: const Text('About'),
@@ -91,7 +87,7 @@ class _TvPageState extends State<TvPage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, TvSearchPage.ROUTE_NAME);
+              Navigator.pushNamed(context, SEARCH_TV_ROUTE);
             },
             icon: const Icon(Icons.search),
           )
@@ -105,8 +101,7 @@ class _TvPageState extends State<TvPage> {
             children: [
               _buildSubHeading(
                 title: 'On The Air',
-                onTap: () =>
-                    Navigator.pushNamed(context, OnTheAirTvPage.ROUTE_NAME),
+                onTap: () => Navigator.pushNamed(context, ON_THE_AIR_TV_ROUTE),
               ),
               BlocBuilder<NowPlayingBloc, NowPlayingState>(
                   builder: (context, state) {
@@ -124,8 +119,7 @@ class _TvPageState extends State<TvPage> {
               }),
               _buildSubHeading(
                 title: 'Popular',
-                onTap: () =>
-                    Navigator.pushNamed(context, PopularTvPage.ROUTE_NAME),
+                onTap: () => Navigator.pushNamed(context, POPULAR_TV_ROUTE),
               ),
               BlocBuilder<PopularBloc, PopularState>(builder: (context, state) {
                 if (state is PopularLoading) {
@@ -142,8 +136,7 @@ class _TvPageState extends State<TvPage> {
               }),
               _buildSubHeading(
                 title: 'Top Rated',
-                onTap: () =>
-                    Navigator.pushNamed(context, TopRatedTvPage.ROUTE_NAME),
+                onTap: () => Navigator.pushNamed(context, TOP_RATED_TV_ROUTE),
               ),
               BlocBuilder<TopRatedBloc, TopRatedState>(
                   builder: (context, state) {
@@ -210,7 +203,7 @@ class TvList extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(
                   context,
-                  TvDetailPage.ROUTE_NAME,
+                  TV_DETAIL_ROUTE,
                   arguments: tv.id,
                 );
               },

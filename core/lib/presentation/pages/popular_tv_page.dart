@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class PopularTvPage extends StatefulWidget {
-  static const ROUTE_NAME = '/popular-tv';
+  const PopularTvPage({Key? key}) : super(key: key);
 
   @override
   _PopularTvPageState createState() => _PopularTvPageState();

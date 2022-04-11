@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/domain/entities/genre.dart';
 import 'package:core/domain/entities/tv_detail.dart';
+import 'package:core/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -12,10 +13,8 @@ import '../bloc/recommendation/bloc/recommendation_bloc.dart';
 import '../bloc/watchlist/bloc/watchlist_bloc.dart';
 
 class TvDetailPage extends StatefulWidget {
-  static const ROUTE_NAME = '/tv_detail';
-
   final int id;
-  TvDetailPage({required this.id});
+  const TvDetailPage({Key? key, required this.id}) : super(key: key);
 
   @override
   _TvDetailPageState createState() => _TvDetailPageState();
@@ -206,7 +205,7 @@ class DetailContent extends StatelessWidget {
                                             onTap: () {
                                               Navigator.pushReplacementNamed(
                                                 context,
-                                                TvDetailPage.ROUTE_NAME,
+                                                TV_DETAIL_ROUTE,
                                                 arguments: tv.id,
                                               );
                                             },

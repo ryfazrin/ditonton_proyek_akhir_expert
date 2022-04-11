@@ -1,23 +1,19 @@
-import 'package:about/about.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/presentation/bloc/now_playing/bloc/now_playing_bloc.dart';
 import 'package:core/presentation/bloc/popular/bloc/popular_bloc.dart';
 import 'package:core/presentation/bloc/top_rated/bloc/top_rated_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:search/presentation/pages/movie_search_page.dart';
 import '../../domain/entities/movie.dart';
+import 'package:core/utils/routes.dart';
 import '../pages/popular_movies_page.dart';
 import '../pages/top_rated_movies_page.dart';
-import '../pages/watchlist_movies_page.dart';
 import '../../core.dart';
-import '../pages/tv_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'movie_detail_page.dart';
 
 class HomeMoviePage extends StatefulWidget {
-  static const ROUTE_NAME = '/home';
   @override
   _HomeMoviePageState createState() => _HomeMoviePageState();
 }
@@ -58,19 +54,19 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               leading: const Icon(Icons.tv),
               title: const Text('Tv'),
               onTap: () {
-                Navigator.pushReplacementNamed(context, TvPage.ROUTE_NAME);
+                Navigator.pushReplacementNamed(context, TV_PAGE_ROUTE);
               },
             ),
             ListTile(
               leading: const Icon(Icons.save_alt),
               title: const Text('Watchlist'),
               onTap: () {
-                Navigator.pushNamed(context, WatchlistMoviesPage.ROUTE_NAME);
+                Navigator.pushNamed(context, WATCHLIST_ROUTE);
               },
             ),
             ListTile(
               onTap: () {
-                Navigator.pushNamed(context, AboutPage.ROUTE_NAME);
+                Navigator.pushNamed(context, ABOUT_ROUTE);
               },
               leading: const Icon(Icons.info_outline),
               title: const Text('About'),
@@ -83,7 +79,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, MovieSearchPage.ROUTE_NAME);
+              Navigator.pushNamed(context, SEARCH_MOVIES_ROUTE);
             },
             icon: const Icon(Icons.search),
           )
@@ -206,7 +202,7 @@ class MovieList extends StatelessWidget {
                 );
               },
               child: ClipRRect(
-                borderRadius: BorderRadius.all(const Radius.circular(16)),
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
                 child: CachedNetworkImage(
                   imageUrl: '$BASE_IMAGE_URL${movie.posterPath}',
                   placeholder: (context, url) => const Center(

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class OnTheAirTvPage extends StatefulWidget {
-  static const ROUTE_NAME = '/on-the_air-tv';
+  const OnTheAirTvPage({Key? key}) : super(key: key);
 
   @override
   _OnTheAirTvPageState createState() => _OnTheAirTvPageState();
