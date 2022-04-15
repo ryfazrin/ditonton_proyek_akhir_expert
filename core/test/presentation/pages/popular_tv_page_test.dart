@@ -4,7 +4,6 @@ import 'package:core/presentation/pages/popular_tv_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../dummy_data/dummy_objects.dart';
@@ -16,7 +15,6 @@ class PopularEventFake extends Fake implements PopularEvent {}
 
 class PopularStateFake extends Fake implements PopularState {}
 
-@GenerateMocks([PopularBloc])
 void main() {
   late MockPopularBloc mockPopularBloc;
 

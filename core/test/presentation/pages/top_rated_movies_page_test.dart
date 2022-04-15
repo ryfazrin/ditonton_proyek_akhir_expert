@@ -4,7 +4,6 @@ import 'package:core/presentation/pages/top_rated_movies_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../dummy_data/dummy_objects.dart';
@@ -16,7 +15,6 @@ class TopRatedEventFake extends Fake implements TopRatedEvent {}
 
 class TopRatedStateFake extends Fake implements TopRatedState {}
 
-@GenerateMocks([TopRatedBloc])
 void main() {
   late MockTopRatedBloc mockTopRatedBloc;
 

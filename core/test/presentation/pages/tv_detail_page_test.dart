@@ -1,10 +1,8 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:core/domain/entities/tv.dart';
 import 'package:core/presentation/bloc/detail/bloc/detail_bloc.dart';
 import 'package:core/presentation/bloc/recommendation/bloc/recommendation_bloc.dart';
 import 'package:core/presentation/bloc/watchlist/bloc/watchlist_bloc.dart';
 import 'package:core/presentation/pages/tv_detail_page.dart';
-import 'package:core/utils/state_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -80,7 +78,7 @@ void main() {
 
     final watchlistButtonIcon = find.byIcon(Icons.add);
 
-    await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
+    await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
     expect(watchlistButtonIcon, findsOneWidget);
   });
@@ -96,7 +94,7 @@ void main() {
 
     final watchlistButtonIcon = find.byIcon(Icons.check);
 
-    await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
+    await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
     expect(watchlistButtonIcon, findsOneWidget);
   });
