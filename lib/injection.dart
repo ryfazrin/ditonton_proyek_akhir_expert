@@ -32,6 +32,7 @@ import 'package:core/presentation/bloc/top_rated/bloc/top_rated_bloc.dart';
 import 'package:core/presentation/bloc/watchlist/bloc/watchlist_bloc.dart';
 import 'package:core/presentation/bloc/watchlist/movie_watchlist/bloc/movie_watchlist_bloc.dart';
 import 'package:core/presentation/bloc/watchlist/tv_watchlist/bloc/tv_watchlist_bloc.dart';
+import 'package:core/utils/http_ssl_pining.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
@@ -95,80 +96,6 @@ void init() {
     () => TvWatchlistBloc(locator()),
   );
 
-  // provider
-  // locator.registerFactory(
-  //   () => MovieListNotifier(
-  //     getNowPlayingMovies: locator(),
-  //     getPopularMovies: locator(),
-  //     getTopRatedMovies: locator(),
-  //   ),
-  // );
-  // locator.registerFactory(
-  //   () => MovieDetailNotifier(
-  //     getMovieDetail: locator(),
-  //     getMovieRecommendations: locator(),
-  //     getWatchListStatus: locator(),
-  //     saveWatchlist: locator(),
-  //     removeWatchlist: locator(),
-  //   ),
-  // );
-
-  // locator.registerFactory(
-  //   () => MovieSearchNotifier(
-  //     searchMovies: locator(),
-  //   ),
-  // );
-  // locator.registerFactory(
-  //   () => PopularMoviesNotifier(
-  //     locator(),
-  //   ),
-  // );
-  // locator.registerFactory(
-  //   () => TopRatedMoviesNotifier(
-  //     getTopRatedMovies: locator(),
-  //   ),
-  // );
-  // locator.registerFactory(
-  //   () => WatchlistMovieNotifier(
-  //     getWatchlistMovies: locator(),
-  //     getWatchlistTv: locator(),
-  //   ),
-  // );
-  // locator.registerFactory(
-  //   () => TvListNotifier(
-  //     getOnTheAirTv: locator(),
-  //     getPopularTv: locator(),
-  //     getTopRatedTv: locator(),
-  //   ),
-  // );
-  // locator.registerFactory(
-  //   () => TvDetailNotifier(
-  //     getTvDetail: locator(),
-  //     getTvRecommendations: locator(),
-  //     getWatchListStatus: locator(),
-  //     saveWatchlist: locator(),
-  //     removeWatchlist: locator(),
-  //   ),
-  // );
-  // locator.registerFactory(
-  //   () => PopularTvNotifier(
-  //     getPopularTv: locator(),
-  //   ),
-  // );
-  // locator.registerFactory(
-  //   () => TopRatedTvNotifier(
-  //     getTopRatedTv: locator(),
-  //   ),
-  // );
-  // locator.registerFactory(
-  //   () => OnTheAirTvNotifier(getOnTheAirTv: locator()),
-  // );
-  // locator.registerFactory(
-  //   () => TvSearchNotifier(
-  //     searchTv: locator(),
-  //   ),
-  // );
-
   // use case
   locator.registerLazySingleton(() => GetNowPlayingMovies(locator()));
   locator.registerLazySingleton(() => GetPopularMovies(locator()));
@@ -218,5 +145,5 @@ void init() {
   locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  locator.registerLazySingleton(() => HttpSSLPinning.client);
 }
