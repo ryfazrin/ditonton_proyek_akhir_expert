@@ -18,6 +18,7 @@ import 'package:core/presentation/pages/top_rated_tv_page.dart';
 import 'package:core/presentation/pages/tv_detail_page.dart';
 import 'package:core/presentation/pages/tv_page.dart';
 import 'package:core/presentation/pages/watchlist_page.dart';
+import 'package:core/utils/http_ssl_pining.dart';
 import 'package:core/utils/routes.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
@@ -31,7 +32,8 @@ import 'package:search/presentation/pages/tv_search_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await HttpSSLPinning.init();
+  // await Firebase.initializeApp();
   di.init();
   runApp(MyApp());
 }
