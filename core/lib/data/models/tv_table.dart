@@ -9,7 +9,7 @@ class TvTable extends Equatable {
   final String? overview;
   final String? type;
 
-  TvTable({
+  const TvTable({
     required this.id,
     required this.name,
     required this.posterPath,

@@ -33,7 +33,7 @@ import 'package:search/presentation/pages/tv_search_page.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await HttpSSLPinning.init();
-  // await Firebase.initializeApp();
+  await Firebase.initializeApp();
   di.init();
   runApp(MyApp());
 }
@@ -100,7 +100,7 @@ class MyApp extends StatelessWidget {
               return CupertinoPageRoute(builder: (_) => MovieSearchPage());
             case WATCHLIST_ROUTE:
               return MaterialPageRoute(builder: (_) => WatchlistPage());
-            case AboutPage.ROUTE_NAME:
+            case ABOUT_ROUTE:
               return MaterialPageRoute(builder: (_) => AboutPage());
             case TV_PAGE_ROUTE:
               return MaterialPageRoute(builder: (_) => TvPage());

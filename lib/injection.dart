@@ -34,7 +34,6 @@ import 'package:core/presentation/bloc/watchlist/movie_watchlist/bloc/movie_watc
 import 'package:core/presentation/bloc/watchlist/tv_watchlist/bloc/tv_watchlist_bloc.dart';
 import 'package:core/utils/http_ssl_pining.dart';
 
-import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
 import 'package:search/bloc/search_bloc.dart';
 import 'package:search/domain/usecases/search_movies.dart';

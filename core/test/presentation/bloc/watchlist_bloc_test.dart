@@ -52,7 +52,7 @@ void main() {
       when(mockGetWatchListStatus.execute(tId)).thenAnswer((_) async => true);
       return watchlistBloc;
     },
-    act: (bloc) => bloc.add(LoadWatchlistStatus(tId)),
+    act: (bloc) => bloc.add(const LoadWatchlistStatus(tId)),
     expect: () => [const WatchlistHasData(true)],
     verify: (bloc) {
       verify(mockGetWatchListStatus.execute(tId));
@@ -68,7 +68,7 @@ void main() {
             .thenAnswer((_) async => false);
         return watchlistBloc;
       },
-      act: (bloc) => bloc.add(AddMovieWatchlist(testMovieDetail)),
+      act: (bloc) => bloc.add(const AddMovieWatchlist(testMovieDetail)),
       expect: () => [
         const WatchlistSuccess('Added to Watchlist'),
         const WatchlistHasData(false),
@@ -87,7 +87,7 @@ void main() {
             .thenAnswer((_) async => false);
         return watchlistBloc;
       },
-      act: (bloc) => bloc.add(AddMovieWatchlist(testMovieDetail)),
+      act: (bloc) => bloc.add(const AddMovieWatchlist(testMovieDetail)),
       expect: () => [
         const WatchlistFailure('Failed'),
         const WatchlistHasData(false),
@@ -107,7 +107,7 @@ void main() {
 
         return watchlistBloc;
       },
-      act: (bloc) => bloc.add(DeleteMovieWatchlist(testMovieDetail)),
+      act: (bloc) => bloc.add(const DeleteMovieWatchlist(testMovieDetail)),
       expect: () => [
         const WatchlistSuccess('Removed from Watchlist'),
         const WatchlistHasData(false),
@@ -126,7 +126,7 @@ void main() {
             .thenAnswer((_) async => true);
         return watchlistBloc;
       },
-      act: (bloc) => bloc.add(DeleteMovieWatchlist(testMovieDetail)),
+      act: (bloc) => bloc.add(const DeleteMovieWatchlist(testMovieDetail)),
       expect: () => [
         const WatchlistFailure('Failed'),
         const WatchlistHasData(true),

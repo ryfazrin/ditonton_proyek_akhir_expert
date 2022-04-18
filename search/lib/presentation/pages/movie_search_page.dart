@@ -1,11 +1,13 @@
 import 'package:core/presentation/widgets/movie_card_list.dart';
 import 'package:core/styles/text_styles.dart';
+import 'package:core/utils/routes.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:search/bloc/search_bloc.dart';
 
 class MovieSearchPage extends StatelessWidget {
-  static const ROUTE_NAME = '/search';
+  // static const ROUTE_NAME = '/search';
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,13 @@ class MovieSearchPage extends StatelessWidget {
               textInputAction: TextInputAction.search,
             ),
             const SizedBox(height: 16),
+            IconButton(
+              onPressed: () {
+                FirebaseCrashlytics.instance.crash();
+                Navigator.pushNamed(context, SEARCH_MOVIES_ROUTE);
+              },
+              icon: const Icon(Icons.search),
+            ),
             Text(
               'Search Result',
               style: kHeading6,

@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:core/domain/entities/movie_detail.dart';
-import 'package:core/domain/entities/tv.dart';
 import 'package:core/domain/entities/tv_detail.dart';
 import 'package:core/domain/usecases/get_watchlist_status.dart';
 import 'package:core/domain/usecases/remove_watchlist.dart';
@@ -9,10 +8,6 @@ import 'package:core/domain/usecases/save_watchlist.dart';
 import 'package:core/domain/usecases/save_watchlist_tv.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
-
-import '../../../../domain/entities/movie.dart';
-import '../../../../utils/state_enum.dart';
-
 part 'watchlist_event.dart';
 part 'watchlist_state.dart';
 

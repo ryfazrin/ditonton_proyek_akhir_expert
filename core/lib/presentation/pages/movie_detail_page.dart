@@ -4,6 +4,7 @@ import 'package:core/presentation/bloc/recommendation/bloc/recommendation_bloc.d
 import 'package:core/presentation/bloc/watchlist/bloc/watchlist_bloc.dart';
 import 'package:core/styles/colors.dart';
 import 'package:core/styles/text_styles.dart';
+import 'package:core/utils/routes.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../domain/entities/genre.dart';
 import '../../domain/entities/movie_detail.dart';
@@ -12,10 +13,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 
 class MovieDetailPage extends StatefulWidget {
-  static const ROUTE_NAME = '/detail';
-
   final int id;
-  MovieDetailPage({required this.id});
+  const MovieDetailPage({Key? key, required this.id}) : super(key: key);
 
   @override
   _MovieDetailPageState createState() => _MovieDetailPageState();
@@ -207,7 +206,7 @@ class DetailContent extends StatelessWidget {
                                             onTap: () {
                                               Navigator.pushReplacementNamed(
                                                 context,
-                                                MovieDetailPage.ROUTE_NAME,
+                                                MOVIE_DETAIL_ROUTE,
                                                 arguments: movie.id,
                                               );
                                             },

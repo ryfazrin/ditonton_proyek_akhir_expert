@@ -98,7 +98,7 @@ void main() {
             .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
         return searchBloc;
       },
-      act: (bloc) => bloc.add(OnMovieQueryChanged(tQuery)),
+      act: (bloc) => bloc.add(const OnMovieQueryChanged(tQuery)),
       wait: const Duration(milliseconds: 500),
       expect: () => [
         SearchLoading(),
